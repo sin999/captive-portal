@@ -21,14 +21,23 @@ public class MainServlet extends HttpServlet {
 
     @Override
     public void init(){
-        System.out.println("########### its my init method!!");
+        System.out.println("########### its my init method!!"+(new Date()));
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        super.doGet(req, resp);
+        resp.setContentType("text/html");
         Writer writer = resp.getWriter();
+        writer.write("<html lang=\"en\">"
+                + "<head><title>Sin's servlet</title></head>");
+
         writer.write("Hello world! >> now is"+(new Date()));
-        writer.write(simpleService.getGritting());
+        writer.write("<BR><B>"+simpleService.getGritting()+"</B>");
+
+        writer.write( AppProperties.getLable());
+        writer.write("End of properties "+(new Date()));
+        writer.write("</body></html>");
+        writer.close();
     }
 }

@@ -2,6 +2,7 @@ package entities;
 
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "CURS_ON_DATE")
@@ -12,9 +13,11 @@ public class CursOnDate {
     private long code;
     private String chCode;
     private long id;
+    private Date onDate;
 
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name="SEQ_GEN", sequenceName="CURS_ON_DATE_SEQ", allocationSize=1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_GEN")
     @Column(name = "ID")
     public long getId() {
         return id;
@@ -56,11 +59,21 @@ public class CursOnDate {
         this.code = code;
     }
 
+    @Column(name = "CH_CODE")
     public String getChCode() {
         return chCode;
     }
 
     public void setChCode(String chCode) {
         this.chCode = chCode;
+    }
+
+    @Column(name = "ONDATE")
+    public Date getOnDate() {
+        return onDate;
+    }
+
+    public void setOnDate(Date onDate) {
+        this.onDate = onDate;
     }
 }
