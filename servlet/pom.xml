@@ -1,0 +1,34 @@
+<project>
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>root.project</groupId>
+   <artifactId>servlet</artifactId>
+   <packaging>war</packaging>
+   <name>servlet</name>
+   <parent>
+      <groupId>root</groupId>
+      <artifactId>project</artifactId>
+      <version>1.0</version>
+   </parent>
+   <build>
+      <resources>
+         <resource>
+            <directory>src/main/resources</directory>
+            <filtering>true</filtering>
+         </resource>
+      </resources>
+   </build>
+   <dependencies>
+      <dependency>
+         <groupId>javax</groupId>
+         <artifactId>javaee-api</artifactId>
+         <scope>provided</scope>
+      </dependency>
+      <dependency>
+         <groupId>root.project</groupId>
+         <artifactId>ejbs</artifactId>
+         <type>ejb</type>
+      </dependency>
+   </dependencies>
+
+
+</project>
