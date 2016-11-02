@@ -2,8 +2,13 @@ package entities;
 
 
 import javax.persistence.*;
+import javax.ws.rs.FormParam;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
-
+@XmlRootElement(name="cursOnDate")
+@XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 @Table(name = "CURS_ON_DATE")
 public class CursOnDate {
@@ -27,6 +32,7 @@ public class CursOnDate {
         this.id = id;
     }
 
+    @FormParam("name")
     public String getName() {
         return name;
     }
@@ -35,6 +41,7 @@ public class CursOnDate {
         this.name = name;
     }
 
+    @FormParam("nom")
     public long getNom() {
         return nom;
     }
@@ -43,6 +50,7 @@ public class CursOnDate {
         this.nom = nom;
     }
 
+    @FormParam("curs")
     public Double getCurs() {
         return curs;
     }
@@ -51,6 +59,7 @@ public class CursOnDate {
         this.curs = curs;
     }
 
+    @FormParam("code")
     public long getCode() {
         return code;
     }
@@ -59,6 +68,7 @@ public class CursOnDate {
         this.code = code;
     }
 
+    @FormParam("chCode")
     @Column(name = "CH_CODE")
     public String getChCode() {
         return chCode;
@@ -68,6 +78,7 @@ public class CursOnDate {
         this.chCode = chCode;
     }
 
+    @FormParam("onDate")
     @Column(name = "ONDATE")
     public Date getOnDate() {
         return onDate;

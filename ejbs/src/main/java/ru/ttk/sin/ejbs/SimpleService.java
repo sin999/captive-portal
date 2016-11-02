@@ -11,22 +11,23 @@ import java.util.Date;
 
 
 @Stateless
-//@WebService
 public class SimpleService {
     @PersistenceContext(unitName = "orasin")
     private EntityManager entityManager;
 
-//    @WebMethod
     public String getGritting(){
-        addCurs();
         return "It is a Service "+(new Date())+" <<!"+(entityManager==null?"em is null ":" Em is not null!!");
     }
 
+    public CursOnDate getCurs(Long id){
+       return entityManager.find(CursOnDate.class,id);
+    }
 
-    public void addCurs(){
+
+    public void addCurs(CursOnDate cursOnDate){
 //        entityManager.getTransaction().begin();
-        CursOnDate cursOnDate = new CursOnDate();
-        cursOnDate.setName("Test record");
+//        CursOnDate cursOnDate = new CursOnDate();
+//        cursOnDate.setName("Test record");
 
         entityManager.persist(cursOnDate);
 //        entityManager.getTransaction().commit();
